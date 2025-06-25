@@ -7,14 +7,16 @@ interface ProductFormProps {
 
 interface ProductInput {
   name: string;
+  description: string;
   price: number;
   stock: number;
   discount?: number;
+  created_at: Date;
 }
 
 export default function ProductForm({ onSubmit, initialData }: ProductFormProps) {
   const [formData, setFormData] = useState<ProductInput>(
-    initialData || { name: "", price: 0, stock: 0, discount: 0 }
+    initialData || { name: "", description: "", price: 0, stock: 0, discount: 0, created_at: new Date() }
   );
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
